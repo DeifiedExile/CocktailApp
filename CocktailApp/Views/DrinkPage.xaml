@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:CocktailApp="clr-namespace:CocktailApp.Views"
+             mc:Ignorable="d"
+             x:Class="CocktailApp.Views.DrinkPage"
+             x:Name="DrinkDetailPage"             
+             >
+    
+        
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem x:Name="HomeButton" Text="Home" Clicked="HomeButton_Clicked" Order="Secondary"/>
+        <ToolbarItem x:Name="FavoritesButton" Text="Favorites" Clicked="FavoritesButton_Clicked" Order="Secondary"/>
+
+
+        <ToolbarItem  x:Name="favoriteTItem" Text="Add to favorites" IconImageSource="{Binding GetIcon}" Order="Primary"  Command="{Binding ToggleFavoriteCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout x:Name="drinkDetail" >
+            
+            <Label Text="{Binding Drink.Name}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+            <Image Source="{Binding Drink.Thumbnail}" HorizontalOptions="CenterAndExpand"/>
+            <ListView x:Name="ingredientsList" Margin="20" ItemTapped="ingredientsList_ItemSelected" ItemsSource="{Binding Drink.Ingredients}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15, 0, 0, 0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Measurement}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="{Binding Drink.Instructions}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

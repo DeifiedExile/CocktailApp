@@ -15,7 +15,10 @@
             <Label Text="{Binding Name}"
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+            <ScrollView Orientation="Vertical">
+                <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+            </ScrollView>
+            
             <Label Text="{Binding ABV}" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>

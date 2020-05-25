@@ -35,7 +35,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Text="{Binding Drink.Instructions}"/>
+            <ScrollView Orientation="Vertical" VerticalOptions="Start" Margin="10, 10, 10 ,10">
+                <Label VerticalTextAlignment="Center" Text="{Binding Drink.Instructions}"/>
+            </ScrollView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
